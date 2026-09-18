@@ -1,11 +1,11 @@
 import 'dart:io';
 
 void runCli(List<String> arguments) {
-  print('Enter passward...');
-  String passward = stdin.readLineSync() ?? '';
-  if (passward == 'passward'){
-    print('Access granted, Hello Devon');
-  }else{
-    print('Incorrect passward, restart to try again');
+  Map<int, String> teams ={
+
   }
+  teams.add('2046');
+  print('___Welcome to Devitone___');
+  print('Scout match: 1');
+  print('See statistics: 2');
 }
