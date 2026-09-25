@@ -3,7 +3,7 @@ import 'dart:io';
 //The read command -> String name = stdin.readLineSync() ?? 'Error';
 
 void runCli(List<String> arguments) {
-  Map<int, int> teams = {};
+  List<Team> teams = [];
   while (true) {
     print('___Welcome to Hot-Diggity-Dog___');
     print('Scout match: 1');
@@ -11,34 +11,35 @@ void runCli(List<String> arguments) {
     print('Exit app: 3');
     String option = stdin.readLineSync() ?? 'Error';
     if (option == '1') {
-      teams.addAll(scout());
+      teams.add(scout());
       print('Thank you for entering this data!');
     } else if (option == '2') {
       print('Choose team number:');
-      String teamNumber = stdin.readLineSync() ?? 'Error';
-      print('$teamNumber has eaten:');
-      if(teams[teamNumber] == null){print('No found data');};
-      print(teams[teamNumber]);
-    } else {
-      break;
+      int teamNumber = int.tryParse(stdin.readLineSync() ?? 'Invalid Input') ?? 0;
+      print();
+    }
     }
   }
 }
 
-Map<int, int> scout() {
-  Map<int, int> scouting = {};
+Team scout() {
   print('Team number:');
-  String teamNumber = stdin.readLineSync() ?? 'Error';
-  int? teamNumberint = .tryParse(teamNumber);
-  if (teamNumberint == null) {
-    print('Invalied input, try again');
+  int teamNumber = int.tryParse(stdin.readLineSync() ?? 'Invalid Input') ?? 0;
+
   print('Hot dogs eaten:');
-  String hotDogsEaten = stdin.readLineSync() ?? 'Error';
-  int? hotDogsEatenint = .tryParse(hotDogsEaten);
-  if (hotDogsEatenint == null) {
-    print('Invalied input, try again');
-  } else {
-    scouting[teamNumber] = hotDogsEatenint;
-  }
-  return scouting;
+  int hotDogsEaten = int.tryParse(stdin.readLineSync() ?? 'Invalid Input') ?? 0;
+
+  print('Hamburgers eaten:');
+  int hamburgersEaten = int.tryParse(stdin.readLineSync() ?? 'Invalid Input') ?? 0;
+
+  Team team1 = Team(teamNumber, hotDogsEaten, hamburgersEaten);
+  return team1;
+}
+
+class Team {
+  int teamNumber;
+  int hotDogsEaten;
+  int hamburgersEaten;
+
+  Team(this.teamNumber, this.hotDogsEaten, this.hamburgersEaten);
 }
