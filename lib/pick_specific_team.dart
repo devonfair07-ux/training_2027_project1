@@ -11,6 +11,7 @@ void pick() {
         print('Selected team number: ${info.teamNumber}');
         print('Hot Dogs Eaten: ${info.hotDogsEaten}');
         print('Hamburbers Eaten: ${info.hamburgersEaten}');
+        print('Total Eaten: ${info.hamburgersEaten+info.hotDogsEaten}');
         print('Notes: ${info.notes}');
       }else{
         print('No teams found$reset');

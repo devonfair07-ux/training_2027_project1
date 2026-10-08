@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:training_2027_project1/main.dart';
 
 void seeAll(){
-  print('\nTeams Scouted:');
+  print('\nScouted Team numbers:');
   int listLength = 0;
   while(listLength < teams.length){
     print(teams[listLength].teamNumber);
